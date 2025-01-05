@@ -1,5 +1,54 @@
 [
     {
+        "id": 20,
+        "name": "Smartphone",
+        "description": "Latest model smartphone.",
+        "price": 800,
+        "image": "https://pngimg.com/uploads/iphone_13/iphone_13_PNG18.png"
+    },
+    {
+        "id": 7,
+        "name": "Keyboard",
+        "description": "Mechanical keyboard with RGB lighting.",
+        "price": 100,
+        "image": "https://i.ibb.co.com/PZ6JRqz/TD-Ajazz-AK820-PRO-Star-Grey-with-Gift-Switch-removebg-preview.png"
+    },
+    {
+        "id": 9,
+        "name": "Monitor",
+        "description": "4K ultra-wide monitor.",
+        "price": 400,
+        "image": "https://media.croma.com/image/upload/v1697624059/Croma%20Assets/Computers%20Peripherals/Monitor/Images/260610_5_mjtpaq.png"
+    },
+    {
+        "id": 5,
+        "name": "Tablet",
+        "description": "Portable and powerful tablet.",
+        "price": 500,
+        "image": "https://pngimg.com/d/tablet_PNG8567.png"
+    },
+    {
+        "id": 8,
+        "name": "Mouse",
+        "description": "Wireless ergonomic mouse.",
+        "price": 50,
+        "image": "https://www.pngarts.com/files/4/PC-Mouse-PNG-Image.png"
+    },
+    {
+        "id": 18,
+        "name": "VR Headset",
+        "description": "Immersive VR experience.",
+        "price": 450,
+        "image": "https://static.vecteezy.com/system/resources/previews/024/724/528/non_2x/virtual-reality-or-vr-headset-isolated-on-transparent-background-vr-glasses-for-360-environment-games-or-simulation-training-generative-ai-free-png.png"
+    },
+    {
+        "id": 10,
+        "name": "Gaming Console",
+        "description": "Next-gen gaming console.",
+        "price": 600,
+        "image": "https://freepngimg.com/save/46830-console-download-hq-png/600x395"
+    },
+    {
         "id": 1,
         "name": "Graphics Card",
         "description": "High-end graphics card.",
@@ -19,7 +68,7 @@
         "description": "Compact and high-quality sound.",
         "price": 150,
         "image": "https://static.vecteezy.com/system/resources/previews/046/787/059/non_2x/white-earbuds-in-transparent-background-free-png.png"
-    },   
+    },
     {
         "id": 4,
         "name": "Smartwatch",
@@ -28,46 +77,11 @@
         "image": "https://png.pngtree.com/png-vector/20240128/ourmid/pngtree-the-smartwatch-banner-png-image_11503774.png"
     },
     {
-        "id": 5,
-        "name": "Tablet",
-        "description": "Portable and powerful tablet.",
-        "price": 500,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvzFK2Bn35jnXWdirtE72Y0Bi5VBylgrN7zg&s"
-    },
-    {
         "id": 6,
         "name": "Camera",
         "description": "Professional DSLR camera.",
         "price": 1500,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUIi_wwRrOhAk7FoY7EVi2Hg5bAR-6MQGVPg&s"
-    },
-    {
-        "id": 7,
-        "name": "Keyboard",
-        "description": "Mechanical keyboard with RGB lighting.",
-        "price": 100,
-        "image": "https://theblisstronics.com/wp-content/uploads/2023/10/asd-600x600.png"
-    },
-    {
-        "id": 8,
-        "name": "Mouse",
-        "description": "Wireless ergonomic mouse.",
-        "price": 50,
-        "image": "https://www.pngarts.com/files/4/PC-Mouse-PNG-Image.png"
-    },
-    {
-        "id": 9,
-        "name": "Monitor",
-        "description": "4K ultra-wide monitor.",
-        "price": 400,
-        "image": "https://img.freepik.com/free-psd/modern-tv-isolated_23-2151430330.jpg"
-    },
-    {
-        "id": 10,
-        "name": "Gaming Console",
-        "description": "Next-gen gaming console.",
-        "price": 600,
-        "image": "https://freepngimg.com/save/46830-console-download-hq-png/600x395"
+        "image": "https://purepng.com/public/uploads/large/dslr-camera-scv.png"
     },
     {
         "id": 11,
@@ -88,7 +102,7 @@
         "name": "External Hard Drive",
         "description": "1TB external hard drive.",
         "price": 80,
-        "image": "https://5.imimg.com/data5/SELLER/Default/2021/3/HN/PF/QN/97826692/external-hdd-500x500.jpg"
+        "image": "https://s3.ap-southeast-1.amazonaws.com/uploads-store/uploads/all/YLyuMM6HIbLwRGZyJuO4mJPRc94gO8Zg6fWwyiOS.png"
     },
     {
         "id": 14,
@@ -119,24 +133,10 @@
         "image": "https://png.pngtree.com/png-clipart/20240315/original/pngtree-drone-png-graphic-png-image_14594979.png"
     },
     {
-        "id": 18,
-        "name": "VR Headset",
-        "description": "Immersive VR experience.",
-        "price": 450,
-        "image": "https://static.vecteezy.com/system/resources/previews/024/724/528/non_2x/virtual-reality-or-vr-headset-isolated-on-transparent-background-vr-glasses-for-360-environment-games-or-simulation-training-generative-ai-free-png.png"
-    },
-    {
         "id": 19,
         "name": "Portable Charger",
         "description": "Fast-charging power bank.",
         "price": 40,
         "image": "https://png.pngtree.com/png-vector/20240728/ourmid/pngtree-flat-mini-power-bank-png-image_13261154.png"
-    }, 
-    {
-        "id": 20,
-        "name": "Smartphone",
-        "description": "Latest model smartphone.",
-        "price": 800,
-        "image": "https://pngimg.com/uploads/iphone_13/iphone_13_PNG18.png"
-    }   
+    }
 ]

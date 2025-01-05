@@ -14,9 +14,9 @@ const renderProducts = (products) => {
     const productCard = document.createElement("div");
     productCard.className = "p-4 bg-white shadow-md rounded-sm"; // Tailwind classes for styling
     productCard.innerHTML = `
-      <div class="flex justify-center items-center mt-6">
+      <div class="flex justify-center items-center mt-6 h-80">
         <img
-          class="h-72 rounded-sm"
+          class="h-full rounded-sm"
           src="${product.image}"
           alt="${product.name}"
         />

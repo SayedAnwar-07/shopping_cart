@@ -41,11 +41,15 @@ const renderCart = () => {
             .map(
               (item) => `
       <div class="flex items-center mb-4">
+        <div
+        class="w-20 h-20 mr-4 p-2 flex justify-center items-center bg-gray-100"
+      >
         <img
           src="${item.image}"
           alt="${item.name}"
-          class="w-20 h-20 object-cover rounded-sm mr-4"
+          class="w-full h-full object-contain rounded-sm"
         />
+      </div>
         <div class="flex-1">
           <h3 class="font-medium">${item.name}</h3>
           <p class="text-sm text-gray-600">Price: $${item.price}</p>
