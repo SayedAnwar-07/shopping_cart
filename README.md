@@ -48,19 +48,14 @@ This project is a simple Product List and Checkout Interface built with a respon
 ## Folder Structure
 ```
 project-root/
-├── public/
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   ├── ProductList.js
-│   │   ├── Cart.js
-│   │   └── Checkout.js
-│   ├── data/
-│   │   └── products.json
-│   ├── App.js
-│   ├── index.js
-│   └── styles/
-│       └── App.css
+├── index.html
+│
+├── script/
+│   ├── Products.js
+│   ├── Cart.js
+│
+├── styles/
+│       └── style.css
 ├── package.json
 └── README.md
 ```
