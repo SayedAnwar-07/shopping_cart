@@ -35,5 +35,3 @@ A responsive product list and checkout interface that allows users to browse pro
 ## Technologies
 - **Frontend**: Vanilla JavaScript, CSS/Tailwind CSS/Bootstrap  
 - **Data Source**: Local JSON file or API  
-
-## Project Structure
