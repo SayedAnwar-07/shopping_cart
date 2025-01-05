@@ -28,26 +28,6 @@ This project is a simple Product List and Checkout Interface built with a respon
 - **Cart Summary**: Displays a summary of cart items and the total cost.
 - **Responsive Design**: The interface is fully responsive and adapts to different screen sizes.
 
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/product-checkout-interface.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd product-checkout-interface
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Start the development server:
-   ```bash
-   npm start
-   ```
-5. Open the application in your browser at `http://localhost:3000`.
-
 ## Usage
 
 1. Browse through the list of products displayed on the main page.
