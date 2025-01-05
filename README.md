@@ -40,8 +40,6 @@ This project is a simple Product List and Checkout Interface built with a respon
 
 ## Technologies Used
 
-- **Frontend**: HTML, CSS, JavaScript, React.js
-- **State Management**: React Hooks or Redux (optional, depending on implementation)
 - **Styling**: CSS/Tailwind CSS/Bootstrap
 - **Data**: Local JSON file or API for product data fetching
 
