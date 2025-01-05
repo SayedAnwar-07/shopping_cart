@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "name": "Graphics Card",
+        "description": "High-end graphics card.",
+        "price": 1200,
+        "image": "https://www.pngmart.com/files/7/Graphics-Card-Transparent-Background.png"
+    },
+    {
+        "id": 2,
+        "name": "Headphones",
+        "description": "Noise-canceling headphones.",
+        "price": 200,
+        "image": "https://pngimg.com/uploads/headphones/headphones_PNG101980.png"
+    },
+    {
+        "id": 3,
+        "name": "Wireless Earbuds",
+        "description": "Compact and high-quality sound.",
+        "price": 150,
+        "image": "https://static.vecteezy.com/system/resources/previews/046/787/059/non_2x/white-earbuds-in-transparent-background-free-png.png"
+    },   
+    {
+        "id": 4,
+        "name": "Smartwatch",
+        "description": "Fitness-focused smartwatch.",
+        "price": 250,
+        "image": "https://png.pngtree.com/png-vector/20240128/ourmid/pngtree-the-smartwatch-banner-png-image_11503774.png"
+    },
+    {
+        "id": 5,
+        "name": "Tablet",
+        "description": "Portable and powerful tablet.",
+        "price": 500,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvzFK2Bn35jnXWdirtE72Y0Bi5VBylgrN7zg&s"
+    },
+    {
+        "id": 6,
+        "name": "Camera",
+        "description": "Professional DSLR camera.",
+        "price": 1500,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUIi_wwRrOhAk7FoY7EVi2Hg5bAR-6MQGVPg&s"
+    },
+    {
+        "id": 7,
+        "name": "Keyboard",
+        "description": "Mechanical keyboard with RGB lighting.",
+        "price": 100,
+        "image": "https://theblisstronics.com/wp-content/uploads/2023/10/asd-600x600.png"
+    },
+    {
+        "id": 8,
+        "name": "Mouse",
+        "description": "Wireless ergonomic mouse.",
+        "price": 50,
+        "image": "https://www.pngarts.com/files/4/PC-Mouse-PNG-Image.png"
+    },
+    {
+        "id": 9,
+        "name": "Monitor",
+        "description": "4K ultra-wide monitor.",
+        "price": 400,
+        "image": "https://img.freepik.com/free-psd/modern-tv-isolated_23-2151430330.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Gaming Console",
+        "description": "Next-gen gaming console.",
+        "price": 600,
+        "image": "https://freepngimg.com/save/46830-console-download-hq-png/600x395"
+    },
+    {
+        "id": 11,
+        "name": "Bluetooth Speaker",
+        "description": "Portable Bluetooth speaker.",
+        "price": 150,
+        "image": "https://purepng.com/public/uploads/large/purepng.com-audio-speakeraudio-speakersaudiospeakerssound-speaker-1701528343466z2uvi.png"
+    },
+    {
+        "id": 12,
+        "name": "Router",
+        "description": "High-speed Wi-Fi router.",
+        "price": 120,
+        "image": "https://purepng.com/public/uploads/large/purepng.com-routerelectronicsroutermodem-941524673117w8ovp.png"
+    },
+    {
+        "id": 13,
+        "name": "External Hard Drive",
+        "description": "1TB external hard drive.",
+        "price": 80,
+        "image": "https://5.imimg.com/data5/SELLER/Default/2021/3/HN/PF/QN/97826692/external-hdd-500x500.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Gaming Chair",
+        "description": "Ergonomic gaming chair.",
+        "price": 300,
+        "image": "https://png.pngtree.com/png-clipart/20230407/original/pngtree-3d-gaming-chair-ai-digital-artwork-png-image_9035028.png"
+    },
+    {
+        "id": 15,
+        "name": "Laptop",
+        "description": "High-performance laptop.",
+        "price": 1000,
+        "image": "https://www.pngarts.com/files/4/Laptop-PNG-Image-Background.png"
+    },
+    {
+        "id": 16,
+        "name": "Smart Home Hub",
+        "description": "Control all your smart devices.",
+        "price": 220,
+        "image": "https://png.pngtree.com/png-vector/20240612/ourmid/pngtree-smart-hub--revolutionizing-home-automation-png-image_12724097.png"
+    },
+    {
+        "id": 17,
+        "name": "Drone",
+        "description": "Compact and foldable drone.",
+        "price": 900,
+        "image": "https://png.pngtree.com/png-clipart/20240315/original/pngtree-drone-png-graphic-png-image_14594979.png"
+    },
+    {
+        "id": 18,
+        "name": "VR Headset",
+        "description": "Immersive VR experience.",
+        "price": 450,
+        "image": "https://static.vecteezy.com/system/resources/previews/024/724/528/non_2x/virtual-reality-or-vr-headset-isolated-on-transparent-background-vr-glasses-for-360-environment-games-or-simulation-training-generative-ai-free-png.png"
+    },
+    {
+        "id": 19,
+        "name": "Portable Charger",
+        "description": "Fast-charging power bank.",
+        "price": 40,
+        "image": "https://png.pngtree.com/png-vector/20240728/ourmid/pngtree-flat-mini-power-bank-png-image_13261154.png"
+    }, 
+    {
+        "id": 20,
+        "name": "Smartphone",
+        "description": "Latest model smartphone.",
+        "price": 800,
+        "image": "https://pngimg.com/uploads/iphone_13/iphone_13_PNG18.png"
+    }   
+]
