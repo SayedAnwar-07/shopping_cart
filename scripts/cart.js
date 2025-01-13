@@ -1,4 +1,11 @@
 let cart = [];
+let deliveryCharge = 0;
+let promoCharge = 0;
+let appliedDiscount = 0;
+const promoCodes = {
+  ostad10: 0.1, // 10% discount
+  ostad5: 0.05, // 5% discount
+};
 
 // Function to add an item to the cart
 const addToCart = (productId) => {
@@ -27,16 +34,50 @@ const updateCartCount = () => {
   document.querySelector(".badge").textContent = cartCount;
 };
 
+// Function to handle promo code application
+const handlePromoCharge = () => {
+  const promoInput = document
+    .querySelector("#promoCode")
+    .value.trim()
+    .toLowerCase();
+  const messageElem = document.querySelector("#message");
+
+  if (promoCodes[promoInput]) {
+    if (appliedDiscount > 0) {
+      messageElem.textContent = "Promo code already applied.";
+      messageElem.className = "text-yellow-500 mt-2";
+      return;
+    }
+
+    appliedDiscount = promoCodes[promoInput];
+    promoCharge = calculateTotal() * appliedDiscount;
+    messageElem.textContent = "Promo code applied successfully!";
+    messageElem.className = "text-green-500 mt-2";
+    renderCart();
+  } else {
+    messageElem.textContent = "Invalid promo code. Please try again.";
+    messageElem.className = "text-red-500 mt-2";
+  }
+};
+
+// Function to calculate the total cost
+const calculateTotal = () => {
+  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+};
+
 // Function to render the cart section
 const renderCart = () => {
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   const cartSection = document.querySelector("#cartSectionRender");
-  const modalCartSection = document.querySelector("#modal-cart-section");
+  const totalCost = calculateTotal();
+  const discountAmount = totalCost * appliedDiscount;
+  const finalTotal = totalCost - discountAmount + deliveryCharge;
 
   cartSection.innerHTML = `
     <h1 class="text-lg font-bold mb-4">Cart</h1>
     ${
       cart.length === 0
-        ? `<p>Your cart is empty.</p>`
+        ? `<p class="text-slate-400">Your cart is empty.</p>`
         : cart
             .map(
               (item) => `
@@ -70,10 +111,66 @@ const renderCart = () => {
             .join("") +
           `
     <hr class="my-4">
+
+    <div class="text-black">
+      <input type="radio" name="delivery_charge" class="radio" id="outside_dhaka" onclick="handleDeliveryCharge(1.70)" ${
+        deliveryCharge === 1.7 ? "checked" : ""
+      }/>
+      <label for="outside_dhaka" class="radio-label">Outside Dhaka delivery charge  <span class=""> $1.70</span></label><br />
+      <input type="radio" name="delivery_charge" class="radio" id="inside_dhaka" onclick="handleDeliveryCharge(0.80)" ${
+        deliveryCharge === 0.8 ? "checked" : ""
+      }/>
+      <label for="inside_dhaka" class="radio-label">Inside Dhaka delivery charge  <span class=""> $0.80</span></label>
+    </div>
+    
+    <hr class="my-4">
+
+    <label for="promoCode" class="block mb-2 font-semibold">Enter Promo Code</label>
+    <div class="flex items-center space-x-2">
+      <input id="promoCode" type="text" class="p-2 border rounded-sm outline-none w-full" placeholder="Enter promo code" />
+      <button id="applyPromoBtn" class="bg-black text-white px-6 py-2 rounded-sm hover:bg-gray-800" onclick="handlePromoCharge()">
+        Apply
+      </button>
+    </div>
+    <p id="message" class="text-sm mt-4"></p>
+
+    <hr class="my-6">
+
+    <div class="flex justify-between items-center gap-20 font-semibold">
+      <span>Total Items:</span>
+      <span>${totalItems}</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Subtotal:</h3>
+      <p class="font-bold">$${totalCost.toFixed(2)}</p>
+    </div>
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Discount:</h3>
+      <p class="font-bold text-green-500">$${discountAmount.toFixed(2)}</p>
+    </div>
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Delivery Charge:</h3>
+      <p class="font-bold">$${deliveryCharge.toFixed(2)}</p>
+    </div>
+    <hr class="my-4">
     <div class="flex justify-between items-center">
       <h3 class="font-bold">Total:</h3>
-      <p class="font-bold">$${calculateTotal().toFixed(2)}</p>
+      <p class="font-bold">$${finalTotal.toFixed(2)}</p>
     </div>
+
+    <button
+          id="buy-btn-modal"
+          class="bg-black text-white hover:bg-gray-800 px-6 py-3 block w-full rounded-sm mt-4"
+          onclick="my_modal_1.showModal()"
+        >
+          Buy
+    </button>
+    <dialog id="my_modal_1" class="modal p-4">
+          <div class="modal-box">
+            <div id="buy-Modal-section" class="mt-4"></div>
+          </div>
+    </dialog>
+
     <button class="bg-black text-white px-6 py-2 rounded-sm block w-full mt-4 hover:bg-gray-800" onclick="clearCart()">Clear Cart</button>
     `
     }
@@ -81,11 +178,94 @@ const renderCart = () => {
 
   // Update modal content
   updateModalCart();
+  updateBuyModal();
 };
 
-// New function to update the modal's cart items dynamically
+const updateBuyModal = () => {
+  const buyModalSection = document.querySelector("#buy-Modal-section");
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const totalCost = calculateTotal();
+  const discountAmount = totalCost * appliedDiscount;
+  const finalTotal = totalCost - discountAmount + deliveryCharge;
+
+  if (!buyModalSection) {
+    console.error("Buy Modal Section not found in the DOM");
+    return;
+  }
+
+  if (cart.length === 0) {
+    buyModalSection.innerHTML = `
+      <p class="text-center text-gray-500">Your cart is empty.</p>
+    `;
+    return;
+  }
+
+  buyModalSection.innerHTML = `
+    <div>
+    <p class="font-semibold text-center mb-8">Purchase Successful!</p>
+      ${cart
+        .map(
+          (item, index) => `
+          
+        <div
+          class="flex justify-between items-center gap-24 font-semibold mb-4"
+        >         
+          <h4><span>${index + 1}. </span>${item.name}</h4>
+          <div class="flex items-center gap-1">
+            <span>${item.quantity}</span>
+            <span> x </span>
+            <span>${item.price.toFixed(2)}</span>
+          </div>
+        </div>
+      `
+        )
+        .join("")}
+      <div class="mt-4">
+        <hr class="my-4">  
+        <div class="flex justify-between items-center gap-20 font-semibold">
+      <span>Total Items:</span>
+      <span>${totalItems}</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Subtotal:</h3>
+      <p class="font-bold">$${totalCost.toFixed(2)}</p>
+    </div>
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Discount:</h3>
+      <p class="font-bold text-green-500">$${discountAmount.toFixed(2)}</p>
+    </div>
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Delivery Charge:</h3>
+      <p class="font-bold">$${deliveryCharge.toFixed(2)}</p>
+    </div>
+    <hr class="my-4">
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Total:</h3>
+      <p class="font-bold">$${finalTotal.toFixed(2)}</p>
+    </div>
+        
+        
+      </div>
+      <div class="modal-action mt-6">
+        <form method="dialog">
+          <button
+            class="bg-black text-white hover:bg-gray-800 text-sm px-4 py-1 rounded-sm"
+          >
+            Close
+          </button>
+        </form>
+      </div>
+    </div>
+  `;
+};
+
+// Updated updateModalCart function to include delivery charge
 const updateModalCart = () => {
   const modalCartSection = document.querySelector("#modal-cart-section");
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const totalCost = calculateTotal();
+  const discountAmount = totalCost * appliedDiscount;
+  const finalTotal = totalCost - discountAmount + deliveryCharge;
 
   if (cart.length === 0) {
     modalCartSection.innerHTML = `
@@ -93,12 +273,6 @@ const updateModalCart = () => {
     `;
     return;
   }
-
-  const totalCost = cart
-    .reduce((acc, item) => acc + item.price * item.quantity, 0)
-    .toFixed(2);
-  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-
   modalCartSection.innerHTML = `
     <div class="space-y-4">
       ${cart
@@ -121,18 +295,35 @@ const updateModalCart = () => {
         .join("")}
     </div>
     <hr class="my-4">
-    <div class="flex justify-between items-center">
-      <h3 class="font-bold">Total Items:</h3>
-      <p class="font-bold">${totalItems}</p>
+    <div class="flex justify-between items-center gap-20 font-semibold">
+      <span>Total Items:</span>
+      <span>${totalItems}</span>
     </div>
     <div class="flex justify-between items-center">
-      <h3 class="font-bold">Total Cost:</h3>
-      <p class="font-bold">$${totalCost}</p>
+      <h3 class="font-bold">Subtotal:</h3>
+      <p class="font-bold">$${totalCost.toFixed(2)}</p>
+    </div>
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Discount:</h3>
+      <p class="font-bold text-green-500">$${discountAmount.toFixed(2)}</p>
+    </div>
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Delivery Charge:</h3>
+      <p class="font-bold">$${deliveryCharge.toFixed(2)}</p>
+    </div>
+    <hr class="my-4">
+    <div class="flex justify-between items-center">
+      <h3 class="font-bold">Total:</h3>
+      <p class="font-bold">$${finalTotal.toFixed(2)}</p>
     </div>
   `;
 };
 
-// Function to update the quantity of a cart item
+const handleDeliveryCharge = (charge) => {
+  deliveryCharge = charge;
+  renderCart();
+};
+
 const updateQuantity = (productId, change) => {
   const item = cart.find((item) => item.id === productId);
   if (item) {
@@ -145,17 +336,11 @@ const updateQuantity = (productId, change) => {
   }
 };
 
-// Function to clear the cart
 const clearCart = () => {
   cart = [];
+  appliedDiscount = 0;
+  promoCharge = 0;
+  deliveryCharge = 0;
   updateCartCount();
   renderCart();
 };
-
-// Function to calculate the total price of items in the cart
-const calculateTotal = () => {
-  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-};
-
-// Initial rendering of the cart
-renderCart();
